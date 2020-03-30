@@ -24548,7 +24548,7 @@ function splitList(value) {
   return value.split(',')
 }
 
-// Transform the keys on an object to camel-case, recursivly.
+// Transform the keys on an object to camel-case, recursively.
 function toCamelCase(object) {
   var result = {};
   var value;
@@ -25001,7 +25001,7 @@ function unified() {
   }
 
   // Data management.
-  // Getter / setter for processor-specific informtion.
+  // Getter / setter for processor-specific information.
   function data(key, value) {
     if (typeof key === 'string') {
       // Set `key`.
@@ -26567,7 +26567,7 @@ const am = "&";
 const amp$1 = "&";
 const and = "∧";
 const andand = "⩕";
-const andd = "⩜";
+const and = "⩜";
 const andslope = "⩘";
 const andv = "⩚";
 const ang = "∠";
@@ -27111,7 +27111,7 @@ const imof = "⊷";
 const imped = "Ƶ";
 const incare = "℅";
 const infin = "∞";
-const infintie = "⧝";
+const infinite = "⧝";
 const inodot = "ı";
 const int = "∫";
 const intcal = "⊺";
@@ -28789,7 +28789,7 @@ var index$3 = {
 	amp: amp$1,
 	and: and,
 	andand: andand,
-	andd: andd,
+	and: and,
 	andslope: andslope,
 	andv: andv,
 	ang: ang,
@@ -29334,7 +29334,7 @@ var index$3 = {
 	"in": "∈",
 	incare: incare,
 	infin: infin,
-	infintie: infintie,
+	infinite: infinite,
 	inodot: inodot,
 	int: int,
 	intcal: intcal,
@@ -31014,7 +31014,7 @@ var characterEntities = /*#__PURE__*/Object.freeze({
   amp: amp$1,
   and: and,
   andand: andand,
-  andd: andd,
+  and: and,
   andslope: andslope,
   andv: andv,
   ang: ang,
@@ -31558,7 +31558,7 @@ var characterEntities = /*#__PURE__*/Object.freeze({
   imped: imped,
   incare: incare,
   infin: infin,
-  infintie: infintie,
+  infinite: infinite,
   inodot: inodot,
   int: int,
   intcal: intcal,
@@ -34260,14 +34260,14 @@ var trim_3 = trim_1.right;
 
 var interrupt_1 = interrupt;
 
-function interrupt(interruptors, tokenizers, ctx, params) {
+function interrupt(interrupts, tokenizers, ctx, params) {
   var length = interruptors.length;
   var index = -1;
   var interruptor;
   var config;
 
   while (++index < length) {
-    interruptor = interruptors[index];
+    interruptor = interrupts[index];
     config = interruptor[1] || {};
 
     if (
@@ -34303,7 +34303,7 @@ function blockquote(eat, value, silent) {
   var self = this;
   var offsets = self.offset;
   var tokenizers = self.blockTokenizers;
-  var interruptors = self.interruptBlockquote;
+  var interrupts = self.interruptBlockquote;
   var now = eat.now();
   var currentLine = now.line;
   var length = value.length;
@@ -34382,7 +34382,7 @@ function blockquote(eat, value, silent) {
       rest = value.slice(index);
 
       // Check if the following code contains a possible block.
-      if (interrupt_1(interruptors, tokenizers, self, [eat, rest, true])) {
+      if (interrupt_1(interrupts, tokenizers, self, [eat, rest, true])) {
         break
       }
     }
@@ -36121,7 +36121,7 @@ function paragraph(eat, value, silent) {
   var commonmark = settings.commonmark;
   var gfm = settings.gfm;
   var tokenizers = self.blockTokenizers;
-  var interruptors = self.interruptParagraph;
+  var interrupts = self.interruptParagraph;
   var index = value.indexOf(lineFeed$f);
   var length = value.length;
   var position;
@@ -36171,7 +36171,7 @@ function paragraph(eat, value, silent) {
     subvalue = value.slice(index + 1);
 
     // Check if the following code contains a possible block.
-    if (interrupt_1(interruptors, tokenizers, self, [eat, subvalue, true])) {
+    if (interrupt_1(interrupts, tokenizers, self, [eat, subvalue, true])) {
       break
     }
 
@@ -37750,7 +37750,7 @@ proto$3.enterList = stateToggle('inList', false);
 proto$3.enterLink = stateToggle('inLink', false);
 proto$3.enterBlock = stateToggle('inBlock', false);
 
-// Nodes that can interupt a paragraph:
+// Nodes that can interrupt a paragraph:
 //
 // ```markdown
 // A paragraph, followed by a thematic break.
@@ -37769,7 +37769,7 @@ proto$3.interruptParagraph = [
   ['footnote', {commonmark: false}]
 ];
 
-// Nodes that can interupt a list:
+// Nodes that can interrupt a list:
 //
 // ```markdown
 // - One
@@ -37785,7 +37785,7 @@ proto$3.interruptList = [
   ['footnote', {commonmark: false}]
 ];
 
-// Nodes that can interupt a blockquote:
+// Nodes that can interrupt a blockquote:
 //
 // ```markdown
 // > A paragraph.
@@ -39820,7 +39820,7 @@ var graveAccent$4 = 96; //  '`'
 // ```foo ``bar`` baz```
 // ````
 //
-// Even knows about inital and final ticks:
+// Even knows about initial and final ticks:
 //
 // ``markdown
 // `` `foo ``
@@ -41211,7 +41211,7 @@ function messageControl(options) {
         }
       }
 
-      /* The first marker ocurred after the first
+      /* The first marker occurred after the first
        * message, so we check the initial state. */
       if (!id) {
         return initial || reset
@@ -42580,7 +42580,7 @@ function listItemIndent(tree, file, pref) {
 var mdastUtilToString = toString$4;
 
 // Get the text content of a node.  If the node itself does not expose
-// plain-text fields, `toString` will recursivly try its children.
+// plain-text fields, `toString` will recursively try its children.
 function toString$4(node) {
   return (
     valueOf$1(node) ||
